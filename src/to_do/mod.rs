@@ -11,7 +11,7 @@ pub enum ItemTypes {
     Done(Done),
 }
 
-pub fn task_factory(input_title: &str, status: TaskStatus) -> ItemTypes {
+pub fn to_do_factory(input_title: &str, status: TaskStatus) -> ItemTypes {
     match status {
         TaskStatus::PENDING => ItemTypes::Pending(Pending::new(input_title)),
         TaskStatus::DONE => ItemTypes::Done(Done::new(input_title)),
