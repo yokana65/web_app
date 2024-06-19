@@ -4,6 +4,7 @@ mod processes;
 mod state;
 mod to_do;
 mod views;
+mod json_serialization;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {

@@ -1,6 +1,10 @@
-// super gives access to mod.rs and we meed the mod of the higher directory
-use super::super::enums::TaskStatus;
+// pub mod to_do_items;
 
+use super::super::enums::TaskStatus;
+use serde::Serialize;
+
+
+#[derive(Serialize)]
 pub struct Base {
     pub title: String,
     pub status: TaskStatus,
