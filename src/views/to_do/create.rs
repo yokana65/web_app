@@ -1,10 +1,10 @@
 use actix_web::HttpRequest;
-use serde_json::Map;
 use serde_json::value::Value;
+use serde_json::Map;
 
-use crate::to_do::{to_do_factory, enums::TaskStatus};
 use crate::processes::process_input;
 use crate::state::read_file;
+use crate::to_do::{enums::TaskStatus, to_do_factory};
 
 pub async fn create(req: HttpRequest) -> String {
     // TODO: Code panics if there is no state.json
