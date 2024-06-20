@@ -5,6 +5,7 @@ use super::super::traits::create::Create;
 use super::super::traits::edit::Edit;
 use super::super::traits::get::Get;
 
+#[derive(Debug)]
 pub struct Pending {
     pub super_struct: Base,
 }

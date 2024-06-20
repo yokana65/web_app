@@ -10,6 +10,7 @@ use serde_json::Map;
 
 fn process_pending(item: Pending, command: String, state: &Map<String, Value>) {
     let mut state = state.clone();
+    println!("{:?}", command.as_str());
     match command.as_str() {
         "get" => item.get(&item.super_struct.title, &state),
         "create" => item.create(
@@ -33,6 +34,7 @@ fn process_done(item: Done, command: String, state: &Map<String, Value>) {
 }
 
 pub fn process_input(item: ItemTypes, command: String, state: &Map<String, Value>) {
+    println!("{:?}", item);
     match item {
         ItemTypes::Pending(item) => process_pending(item, command, state),
         ItemTypes::Done(item) => process_done(item, command, state),
