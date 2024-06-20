@@ -3,13 +3,13 @@ use serde_json::value::Value;
 use serde_json::Map;
 
 use crate::state::read_file;
-
+use crate::jwt::JwToken;
 use crate::json_serialization::{to_do_item::ToDoItem, to_do_items::ToDoItems};
 use crate::processes::process_input;
 use crate::to_do::{enums::TaskStatus, to_do_factory};
 
-pub async fn edit(to_do_item: web::Json<ToDoItem>) -> HttpResponse {
-    println!("functions is called");
+pub async fn edit(to_do_item: web::Json<ToDoItem>, token:JwToken) -> HttpResponse {
+    println!("here is the token msg {:?}", &token.message);
     let state: Map<String, Value> = read_file("./state.json");
     let status: TaskStatus;
     println!("{} is being edited", &to_do_item.title);
